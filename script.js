@@ -1,3 +1,6 @@
+const books = document.querySelector('.books');
+const button = document.querySelector('button');
+
 let myLibrary = [];
 
 function Book(name, author, page, isRead) {
@@ -15,30 +18,19 @@ function addBookToLibrary() {
 
     const book = new Book(name, author, page, isRead);
     myLibrary.push(book);
+    displayBook(myLibrary);
 }
 
-let noOfBooks = prompt("How many books do you want to add?");
+button.onclick = addBookToLibrary;
 
-if (noOfBooks > 10) {
-    alert("Please enter a no. less then 10 next time");
-} else {
-    for (let i = 0; i < noOfBooks; i++) {
-        addBookToLibrary();
-    }
-}
-
-const books = document.querySelector('.books');
+// DIsplaying it on the screen
 
 displayBook = (arr) => {
-    for (let i = 0; i < arr.length; i++) {
+    let lastElement = arr[arr.length - 1];
+    let div = document.createElement('div');
 
-        let div = document.createElement('div');
-
-        for (const key in arr[i]) {
-            div.innerHTML += `${key}: ${arr[i][key]} <br>`;
-        }
-        books.appendChild(div);
+    for (const key in lastElement) {
+        div.innerHTML += `${key}: ${lastElement[key]} <br>`;
     }
+    books.appendChild(div);
 }
-
-displayBook(myLibrary);
