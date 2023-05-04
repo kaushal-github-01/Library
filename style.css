@@ -18,9 +18,43 @@
 }
 
 
-button {
+#add-book {
     height: 35px;
     width: 80px;
-    margin: 25px auto 0px;
+    margin: 25px auto 25px;
     display: block;
+}
+
+form {
+    display: none;
+    width: 350px;
+    margin: 0px auto;
+    text-align: center;
+}
+
+#fieldset {
+    padding: 15px 0px;
+}
+
+/* form tags here */
+
+#name {
+    margin-right: -10px;
+}
+
+#page {
+    margin-right: -56px;   
+}
+
+#read {
+    margin-left: -35px;
+    margin-right: 20px;
+}
+
+#yes-radio {
+    margin-right: 35px;
+}
+
+#submitButton {
+    padding: 5px 5px;
 }

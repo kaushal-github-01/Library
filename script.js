@@ -1,5 +1,7 @@
 const books = document.querySelector('.books');
-const button = document.querySelector('button');
+const addBookButton = document.querySelector('#add-book');
+const form = document.querySelector('form');
+const submitButton = document.querySelector('#submitButton');
 
 let myLibrary = [];
 
@@ -10,18 +12,9 @@ function Book(name, author, page, isRead) {
     this.Read = isRead
 }
 
-function addBookToLibrary() {
-    let name = prompt("What is the name?");
-    let author = prompt("Who is the author?");
-    let page = prompt("How many pages are there?");
-    let isRead = prompt("Have you read it yet?");
-
-    const book = new Book(name, author, page, isRead);
-    myLibrary.push(book);
-    displayBook(myLibrary);
-}
-
-button.onclick = addBookToLibrary;
+addBookButton.onclick = () => {
+    form.style.display = "block";
+};
 
 // DIsplaying it on the screen
 
@@ -33,4 +26,43 @@ displayBook = (arr) => {
         div.innerHTML += `${key}: ${lastElement[key]} <br>`;
     }
     books.appendChild(div);
+}
+
+submitButton.onclick = (event) => {
+    event.preventDefault();
+
+    // get input values
+    const nameInput = document.getElementById('name');
+    const authorInput = document.getElementById('author');
+    const pageInput = document.getElementById('page');
+    const yesRadio = document.getElementById("yes-radio");
+    const noRadio = document.getElementById("no-radio");
+
+    const name = nameInput.value;
+    const author = authorInput.value;
+    const page = pageInput.value;
+
+    // get selected radio button value
+    let isRead;
+    if (yesRadio.checked) {
+        isRead = yesRadio.value;
+    } else if (noRadio.checked) {
+        isRead = noRadio.value;
+    } else {
+        isRead = null;
+    }
+
+    // create new book object and add to library
+    const book = new Book(name, author, page, isRead);
+    myLibrary.push(book);
+    displayBook(myLibrary);
+
+    // clear input fields
+    nameInput.value = "";
+    authorInput.value = "";
+    pageInput.value = "";
+    yesRadio.checked = false;
+    noRadio.checked = false;
+
+    form.style.display = "none";
 }
