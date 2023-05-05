@@ -20,7 +20,6 @@ addBookButton.onclick = () => {
 
 displayBook = (book, index) => {
     let div = document.createElement('div');
-    div.setAttribute('data-index', index);
 
     let removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
@@ -41,9 +40,7 @@ displayBook = (book, index) => {
     let updateButton = document.createElement('button');
     updateButton.textContent = "Update";
     updateButton.onclick = () => {
-        let index = div.getAttribute('data-index');
         let book = myLibrary[index];
-
         book.Read = book.Read === 'Yes' ? 'No' : 'Yes';
 
         // update value on screen
@@ -56,15 +53,13 @@ displayBook = (book, index) => {
     books.appendChild(div);
 }
 
-
-
 submitButton.onclick = (event) => {
     event.preventDefault();
 
     // get input values
-    const nameInput = document.getElementById('name');
-    const authorInput = document.getElementById('author');
-    const pageInput = document.getElementById('page');
+    const name = document.getElementById('name');
+    const author = document.getElementById('author');
+    const page = document.getElementById('page');
     const yesRadio = document.getElementById("yes-radio");
     const noRadio = document.getElementById("no-radio");
 
@@ -79,7 +74,7 @@ submitButton.onclick = (event) => {
     }
 
     // create new book object and add to library
-    const book = new Book(nameInput.value, authorInput.value, pageInput.value, isRead);
+    const book = new Book(name.value, author.value, page.value, isRead);
     myLibrary.push(book);
 
     // get index of the new book object in myLibrary array
@@ -89,9 +84,9 @@ submitButton.onclick = (event) => {
     displayBook(book, index);
 
     // clear input fields
-    nameInput.value = "";
-    authorInput.value = "";
-    pageInput.value = "";
+    name.value = "";
+    author.value = "";
+    page.value = "";
     yesRadio.checked = false;
     noRadio.checked = false;
 
