@@ -22,9 +22,18 @@ displayBook = (arr) => {
     let lastElement = arr[arr.length - 1];
     let div = document.createElement('div');
 
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.setAttribute('id', 'removeButton');
+    removeButton.setAttribute('style', 'margin-top: 5px;');
+    removeButton.onclick = () => {
+        div.style.display = "none";
+    }
+
     for (const key in lastElement) {
         div.innerHTML += `${key}: ${lastElement[key]} <br>`;
     }
+    div.appendChild(removeButton);
     books.appendChild(div);
 }
 
