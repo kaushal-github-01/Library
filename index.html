@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Library</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
+  <body>
+    <div class="books"></div>
+    <button id="add-book">Add Book</button>
+    <form>
+      <fieldset id="fieldset">
+        <label for="name">Book Name:</label>
+        <input type="text" id="name" />
+        <br /><br />
 
-<body>
-  <div class="books"></div>
-  <button id="add-book">Add Book</button>
-  <form>
-    <fieldset id="fieldset">
-      <label for="name">Book Name:</label>
-      <input type="text" id="name"> <br> <br>
+        <label for="author">Author Name:</label>
+        <input type="text" id="author" />
+        <br /><br />
 
-      <label for="author">Author Name:</label>
-      <input type="text" id="author"> <br> <br>
+        <label for="pages">Page:</label>
+        <input type="number" id="page" />
+        <br /><br />
 
-      <label for="pages">Page:</label>
-      <input type="number" id="page"> <br> <br>
+        <label for="read" id="read">Done Reading:</label>
+        <label for="yes-radio">Yes</label>
+        <input type="radio" id="yes-radio" name="answer" value="Yes" />
+        <label for="no-radio">No</label>
+        <input type="radio" id="no-radio" name="answer" value="No" />
+        <br /><br />
 
-      <label for="read" id="read">Done Reading:</label>
-      <label for="yes-radio">Yes</label>
-      <input type="radio" id="yes-radio" name="answer" value="Yes">
-      <label for="no-radio">No</label>
-      <input type="radio" id="no-radio" name="answer" value="No"> <br><br>
-
-      <button type="submit" id="submitButton">Submit</button>
-    </fieldset>
-  </form>
-  <script src="./script.js"></script>
-</body>
-
+        <button type="submit" id="submitButton">Submit</button>
+      </fieldset>
+    </form>
+    <script src="./script.js"></script>
+  </body>
 </html>
